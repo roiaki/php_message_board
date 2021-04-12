@@ -1,4 +1,4 @@
-{{-- タイトルエラー表 --}}
+{{-- タイトルエラー表示 --}}
 @if ($errors->has('title'))
     @foreach($errors->get('title') as $error)
     <div class="mt-2">
