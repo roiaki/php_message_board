@@ -118,6 +118,7 @@ return [
 
     // 追加
     'attributes' => [
+        'title' => 'タイトル',
         'content'=>'メッセージ'],
 
 ];

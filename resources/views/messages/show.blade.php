@@ -9,6 +9,12 @@
             <th style="width:25%">id</th>
             <td>{{ $message->id }}</td>
         </tr>
+        
+        <tr>
+            <th style="width:25%">タイトル</th>
+            <td>{{ $message->title }}</td>
+        </tr>
+        
         <tr>
             <th style="width:25%">メッセージ</th>
             <td>{{ $message->content }}</td>

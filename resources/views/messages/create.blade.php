@@ -2,7 +2,7 @@
 
 @section('content')
     
-    {{-- エラーメッセージ表示--}}
+    {{-- エラーメッセージ表示
     @if (count($errors) > 0)
         <ul class="alert alert-danger" role="alert">
             @foreach ($errors->get('content') as $error)
@@ -10,6 +10,7 @@
             @endforeach
         </ul>
     @endif
+    --}}   
     
     <h1>メッセージ新規作成ページ</h1>
 
@@ -17,15 +18,20 @@
         <div class="col-6">
             {!! Form::model($message, ['route' => 'messages.store']) !!}
         
+        
+                <div class="form-group">
+                    {!! Form::label('title', 'タイトル:') !!}
+                    {!! Form::text('title', null, ['class' => 'form-control']) !!}
+                                        
+                    @include('commons.error_title')
+                    
+                </div>
+                
                 <div class="form-group">
                     {!! Form::label('content', 'メッセージ:') !!}
                     {!! Form::text('content', null, ['class' => 'form-control']) !!}
                     
-                    @if ($errors->has('content'))
-                        @foreach($errors->get('content') as $error)
-                            <p style="color:red">{{ $error }}</p>
-                        @endforeach
-                    @endif
+                    @include('commons.error_content')   
                     
                 </div>
         

@@ -3,12 +3,18 @@
 @section('content')
 
     <h1>メッセージ一覧</h1>
-
+    
+    {{-- 上下マージン　--}}
+    <div class="my-3">
+        {!! link_to_route('messages.create', '新規メッセージの投稿', [], ['class' => 'btn btn-primary']) !!}
+    </div>
+    
     @if (count($messages) > 0)
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>id</th>
+                    <th>タイトル</th>
                     <th>メッセージ</th>
                 </tr>
             </thead>
@@ -22,13 +28,13 @@
                     // 第4引数：第4引数：HTML タグの属性を配列形式で指定
                     -->
                     <td>{!! link_to_route('messages.show', $message->id, ['id' => $message->id]) !!}</td>
+                    <td>{{ $message->title }}</td>
                     <td>{{ $message->content }}</td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     @endif
-
-   {!! link_to_route('messages.create', '新規メッセージの投稿', [], ['class' => 'btn btn-primary']) !!}
+    {{ $messages->links('pagination::bootstrap-4') }}
    
 @endsection
